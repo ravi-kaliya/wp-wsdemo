@@ -5,57 +5,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Additional styles for the sidebar */
+        .sidebar {
+            transition: width 0.3s;
+        }
+    </style>
 </head>
 <body class="bg-gray-100">
-    <!-- Admin Layout Here -->
-    <div class="flex h-screen">
-      <!-- Sidebar -->
-      <aside class="w-64 bg-white shadow-md">
-          <div class="p-4">
-              <h2 class="text-xl font-bold">Admin Panel</h2>
-              <ul class="mt-6">
-                  <li class="my-2">
-                      <a href="#" class="text-gray-700 hover:bg-gray-200 block p-2 rounded">Dashboard</a>
-                  </li>
-                  <li class="my-2">
-                      <a href="#" class="text-gray-700 hover:bg-gray-200 block p-2 rounded">Users</a>
-                  </li>
-                  <li class="my-2">
-                      <a href="#" class="text-gray-700 hover:bg-gray-200 block p-2 rounded">Settings</a>
-                  </li>
-                  <li class="my-2">
-                      <a href="#" class="text-gray-700 hover:bg-gray-200 block p-2 rounded">Reports</a>
-                  </li>
-              </ul>
-          </div>
-      </aside>
-  
-      <!-- Main Content -->
-      <div class="flex-1 flex flex-col">
-          <!-- Header -->
-          <header class="bg-white shadow p-4">
-              <h1 class="text-xl font-semibold">Dashboard</h1>
-          </header>
-  
-          <!-- Content -->
-          <main class="flex-1 p-6">
-              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  <div class="bg-white p-4 rounded shadow">
-                      <h2 class="font-semibold">Card 1</h2>
-                      <p>Content for card 1</p>
-                  </div>
-                  <div class="bg-white p-4 rounded shadow">
-                      <h2 class="font-semibold">Card 2</h2>
-                      <p>Content for card 2</p>
-                  </div>
-                  <div class="bg-white p-4 rounded shadow">
-                      <h2 class="font-semibold">Card 3</h2>
-                      <p>Content for card 3</p>
-                  </div>
-              </div>
-          </main>
-      </div>
-  </div>
-  
+
+<div class="flex h-screen">
+    <!-- Sidebar -->
+    <aside id="sidebar" class="sidebar w-64 bg-white shadow-md">
+        <div class="p-4">
+            <h2 class="text-xl font-bold">Admin Panel</h2>
+            <ul class="mt-6 space-y-2">
+                <li>
+                    <a href="#" class="flex items-center text-gray-700 hover:bg-gray-200 p-2 rounded">
+                        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h18v18H3V3z"/></svg>
+                        <span class="hidden md:block">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center text-gray-700 hover:bg-gray-200 p-2 rounded">
+                        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12h4m-4 4h4m-4-8h4M4 4h16M4 12h8m-8 4h8m-8-8h8m-8 8h8"/></svg>
+                        <span class="hidden md:block">Users</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center text-gray-700 hover:bg-gray-200 p-2 rounded">
+                        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v18m9-9H3"/></svg>
+                        <span class="hidden md:block">Settings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center text-gray-700 hover:bg-gray-200 p-2 rounded">
+                        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.5v15M4.5 12h15"/></svg>
+                        <span class="hidden md:block">Reports</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col">
+        <!-- Header -->
+        <header class="bg-white shadow p-4 flex justify-between items-center">
+            <h1 class="text-xl font-semibold">Dashboard</h1>
+            <button id="toggleSidebar" class="md:hidden p-2 bg-gray-200 rounded">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/></svg>
+            </button>
+        </header>
+
+        <!-- Content -->
+        <main class="flex-1 p-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-4 rounded shadow">
+                    <h2 class="font-semibold">Card 1</h2>
+                    <p>Content for card 1</p>
+                </div>
+                <div class="bg-white p-4 rounded shadow">
+                    <h2 class="font-semibold">Card 2</h2>
+                    <p>Content for card 2</p>
+                </div>
+                <div class="bg-white p-4 rounded shadow">
+                    <h2 class="font-semibold">Card 3</h2>
+                    <p>Content for card 3</p>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<script>
+    // Toggle sidebar visibility
+    const toggleButton = document.getElementById('toggleSidebar');
+    const sidebar = document.getElementById('sidebar');
+
+    toggleButton.addEventListener('click', () => {
+        sidebar.classList.toggle('hidden');
+    });
+</script>
+
 </body>
 </html>
