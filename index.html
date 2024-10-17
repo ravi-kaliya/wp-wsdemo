@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diwali Diya Animation</title>
+  <link rel="stylesheet" href="styles.css">
+<style>
+/* Global styles */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #1c1c1c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Container to hold the Diyas */
+.animation-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Styling the floating Diyas */
+.diya {
+  position: absolute;
+  width: 60px;
+  height: 30px;
+  background-color: #b5651d; /* Brownish color for the diya base */
+  border-radius: 50% 50% 0 0;
+  box-shadow: 0 0 10px rgba(255, 165, 0, 0.5), 0 0 15px rgba(255, 165, 0, 0.7);
+  animation: floatUpDown 5s ease-in-out infinite;
+}
+
+/* Styling the flame using the pseudo-element */
+.diya:before {
+  content: '';
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 25px;
+  background-color: orange;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(255, 140, 0, 0.8);
+  animation: flicker 0.6s infinite alternate;
+}
+
+/* Flame details with another pseudo-element */
+.diya:after {
+  content: '';
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 15px;
+  background-color: yellow;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(255, 215, 0, 0.8);
+  animation: flicker-small 0.8s infinite alternate;
+}
+
+/* Random placement of each diya */
+.diya:nth-child(1) {
+  top: 80%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.diya:nth-child(2) {
+  top: 70%;
+  left: 30%;
+  animation-delay: 1s;
+}
+
+.diya:nth-child(3) {
+  top: 85%;
+  left: 60%;
+  animation-delay: 2s;
+}
+
+.diya:nth-child(4) {
+  top: 75%;
+  left: 85%;
+  animation-delay: 3s;
+}
+
+/* Floating animation */
+@keyframes floatUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Flickering flame animation */
+@keyframes flicker {
+  0% {
+    transform: translateX(-50%) scaleY(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) scaleY(1.2);
+    opacity: 0.8;
+  }
+}
+
+@keyframes flicker-small {
+  0% {
+    transform: translateX(-50%) scaleY(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) scaleY(1.2);
+    opacity: 0.7;
+  }
+}
+
+</style>
+</head>
+<body>
+
+  <!-- Container for floating Diyas -->
+  <div class="animation-container">
+    <div class="diya"></div>
+    <div class="diya"></div>
+    <div class="diya"></div>
+    <div class="diya"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
